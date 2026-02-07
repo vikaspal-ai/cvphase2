@@ -182,7 +182,7 @@ const App = () => {
    
     try {
       console.log("inside the api call ")
-      const response = await fetch("https://strategicerp.centiloquy.com/runtime/webhook/3f276f3d-03b8-47d7-89dc-3bdeaaedc55f/webhookTrigger/70efef98-5f2c-42fc-9b2d-76da25f991e8", {
+      const response = await fetch("https://strategicerp.centiloquy.com/runtime/webhook/4ec2dced-52ac-4dfe-ac32-b68fbcb5e475/webhookTrigger/8c1ee4fa-44af-4448-8e05-d6d320c1e647", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -190,7 +190,7 @@ const App = () => {
         body: JSON.stringify({
           server: window.location.hostname.split(".")[0] ?? "t29",
           cloudcode : window.top.document.forms[0]?.cloudcode?.value || "",
-          company_name: "CvAnalyzer"
+          company_name: "compare-cv"
         })
       });
 
@@ -438,7 +438,10 @@ const App = () => {
       const candidatesForApi = filteredCandidates.map(candidate => ({
         name: candidate.name,
         position: candidate.position,
-        details: candidate.details
+        details: candidate.details,
+        username : window.top.document.forms[0]?.username?.value || "ERP Admin",
+        candidate_name : top.document.getElementById("field18059").value,
+        vacancyAppliedFor : top.document.getElementById("field18401").value,
       }));
       
       const response = await fetch('https://strategicerp.centiloquy.com/runtime/webhook/e01a377a-396d-4db3-a9c4-6e9eab1255ff/webhookTrigger/f6a8c083-f8cc-4abc-957b-3908a31c522d', {
